@@ -55,7 +55,9 @@ $fileMetaData = [
 $logsArray = json_decode(file_get_contents('fileUploadLogs.json'), true);
 $logsArray[] = $fileMetaData;
 file_put_contents('fileUploadLogs.json', json_encode($logsArray));
-die('Success.');
+
+header("Location: ./index.php");
+die();
 
 
 
