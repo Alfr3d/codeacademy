@@ -1,6 +1,6 @@
 <?php
 
-$file = $_POST['filePath'];
+$file = $_GET['filePath'];
 
 if (file_exists($file)) {
     header('Content-Type: application/octet-stream');

@@ -44,18 +44,19 @@
                 <td>Name</td>
                 <td>Size (Bytes)</td>
                 <td>Uploading date</td>
-                <td>Methods</td>
+                <td>Download</td>
+                <td>Delete</td>
             </tr>
-            <?php foreach ($filesLogs as $fileLog): ?>
+            <?php foreach ($filesLogs as $key => $fileLog): ?>
                 <tr>
                     <td><?= $fileLog['name'] ?></td>
                     <td><?= $fileLog['size'] ?></td>
                     <td><?= $fileLog['dateCreated'] ?></td>
                     <td>
-                        <form method="post" action="downloadFile.php">
-                            <input type="hidden" name="filePath" value="<?= $fileLog['path']?> ">
-                            <button type="submit">Download</button>
-                        </form>
+                        <a href="downloadFile.php?filePath=<?= $fileLog['path'] ?>">Download</a>
+                    </td>
+                    <td>
+                        <a href="deleteFile.php?fileKey=<?= $key ?>">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
