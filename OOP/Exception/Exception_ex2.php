@@ -6,9 +6,14 @@ class InventoryException extends Exception
 {
 }
 
+class InputValidationException extends Exception
+{
+}
+
 class InventoryService
 {
     private const INVENTORY_FILE_PATH = './inventory.json';
+    private const LOG_FILE_PATH = './log.txt';
     private const PRODUCT_ID_POSITION = 0;
     private const PRODUCT_QUANTITY_POSITION = 1;
     private const SUCCESS_MESSAGE = 'All products have the requested quantity in stock';
@@ -24,6 +29,7 @@ class InventoryService
                     'product "%s" is not in the inventory',
                     $productForCheck[self::PRODUCT_ID_POSITION]
                 );
+                $this->createLog($message);
 
                 throw new InventoryException($message);
             }
@@ -68,12 +74,40 @@ class InventoryService
 
         return $products;
     }
+
+    private function createLog(string $message): void
+    {
+        $message = date('Y-m-d H:i:s') . ' ' . $message . PHP_EOL;
+        file_put_contents(self::LOG_FILE_PATH, $message, FILE_APPEND);
+    }
+}
+
+class InputValidator
+{
+    public static function validate(string $productsInfo): void
+    {
+        $productsArray = explode(',', $productsInfo);
+
+        foreach ($productsArray as $product) {
+            if (!preg_match('/\d(:)\d/', $product)) {
+                $message = sprintf(
+                    'Invalid input "%s". Format: id:quantity,id:quantity',
+                    $productsInfo
+                );
+
+                throw new InputValidationException($message);
+            }
+        }
+    }
 }
 
 try {
+    $productsToCheck = "1:122,2:3,4:1";
+    InputValidator::validate($productsToCheck);
+
     $inventoryService = new InventoryService();
-    echo $inventoryService->checkInventory("1:3,2:42,4:1");
-} catch (InventoryException $exception) {
+    echo $inventoryService->checkInventory($productsToCheck);
+} catch (InventoryException|InputValidationException $exception) {
     die($exception->getMessage());
 }
 
