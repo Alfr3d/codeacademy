@@ -1,0 +1,15 @@
+{
+    "name": "codeacademy/processor",
+    "description": "This is test description",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Processor\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "PHP VIGI-31"
+        }
+    ]
+}
