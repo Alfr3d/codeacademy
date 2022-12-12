@@ -10,6 +10,6 @@ class App
     public function execute(): void
     {
         $dataProcessor = new DataProcessorService(CategoryService::getCategoriesData());
-        $dataProcessor->process('json', 'terminal');
+        $dataProcessor->process('xml', 'file');
     }
 }

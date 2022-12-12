@@ -22,7 +22,7 @@ class DataProcessorService
         // output it to $output (file or terminal)
         $outputHandler = $this->processOutput($output);
 
-        $outputHandler->handle($encodedData);
+        $outputHandler->handle($encodedData, $format);
     }
 
     private function processFormat(string $format): string
