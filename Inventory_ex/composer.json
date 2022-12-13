@@ -1,0 +1,12 @@
+{
+    "name": "codeacademy/inventory",
+    "description": "Test description",
+    "autoload": {
+        "psr-4": {
+            "Codeacademy\\Inventory\\": "src/"
+        }
+    },
+    "require": {
+        "monolog/monolog": "^3.2"
+    }
+}

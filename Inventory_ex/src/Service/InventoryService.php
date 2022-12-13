@@ -1,8 +1,11 @@
 <?php
 
-namespace MyProject\Service;
+namespace Codeacademy\Inventory\Service;
 
-use MyProject\Exception\InventoryException;
+use Codeacademy\Inventory\Exception\InventoryException;
+use Monolog\Handler\StreamHandler;
+use Monolog\Level;
+use Monolog\Logger;
 
 class InventoryService
 {
@@ -23,7 +26,11 @@ class InventoryService
                     'product "%s" is not in the inventory',
                     $productForCheck[self::PRODUCT_ID_POSITION]
                 );
-                $this->createLog($message);
+
+                // create a log channel
+                $log = new Logger('CheckInventory');
+                $log->pushHandler(new StreamHandler(self::LOG_FILE_PATH, Level::Alert));
+                $log->alert($message);
 
                 throw new InventoryException($message);
             }
@@ -67,11 +74,5 @@ class InventoryService
         }
 
         return $products;
-    }
-
-    private function createLog(string $message): void
-    {
-        $message = date('Y-m-d H:i:s') . ' ' . $message . PHP_EOL;
-        file_put_contents(self::LOG_FILE_PATH, $message, FILE_APPEND);
     }
 }

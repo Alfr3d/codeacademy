@@ -1,12 +1,4 @@
 2022-12-01 19:29:50 product "9" is not in the inventory
-2022-12-01 19:31:49 product "9" is not in the inventory
-2022-12-01 19:31:50 product "9" is not in the inventory
-2022-12-01 19:31:50 product "9" is not in the inventory
-2022-12-01 19:31:50 product "9" is not in the inventory
-2022-12-01 19:31:51 product "9" is not in the inventory
-2022-12-01 19:32:13 product "9" is not in the inventory
-2022-12-01 19:32:14 product "9" is not in the inventory
-2022-12-01 19:52:31 product "9" is not in the inventory
-2022-12-05 15:56:03 product "9" is not in the inventory
-2022-12-05 16:09:26 product "9" is not in the inventory
-2022-12-05 18:59:43 product "9" is not in the inventory
+
+[2022-12-13T17:06:34.508029+00:00] CheckInventory.ALERT: product "12" is not in the inventory [] []
+[2022-12-13T17:06:46.013471+00:00] CheckInventory.ALERT: product "12" is not in the inventory [] []

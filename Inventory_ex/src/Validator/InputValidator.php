@@ -1,8 +1,8 @@
 <?php
 
-namespace MyProject\Validator;
+namespace Codeacademy\Inventory\Validator;
 
-use MyProject\Exception\InputValidationException;
+use Codeacademy\Inventory\Exception\InputValidationException;
 
 class InputValidator
 {

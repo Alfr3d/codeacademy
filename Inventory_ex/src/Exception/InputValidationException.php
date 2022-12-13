@@ -1,6 +1,6 @@
 <?php
 
-namespace MyProject\Exception;
+namespace Codeacademy\Inventory\Exception;
 
 use Exception;
 
