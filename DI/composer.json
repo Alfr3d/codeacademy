@@ -1,0 +1,9 @@
+{
+    "name": "codeacademy/di",
+    "autoload": {
+        "psr-4": {
+            "Codeacademy\\Di\\": "src/"
+        }
+    },
+    "require": {}
+}
