@@ -1,0 +1,15 @@
+{
+    "name": "alfred/mvc-project",
+    "description": "Simple mvc project example",
+    "autoload": {
+        "psr-4": {
+            "Alfred\\MvcProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alfred"
+        }
+    ],
+    "require": {}
+}
