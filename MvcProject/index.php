@@ -10,6 +10,8 @@ $container = new DIContainer();
 $container->loadDependencies();
 
 // Use custom Router
-$requestUri = str_replace('/MvcProject', '', $_SERVER['REQUEST_URI']);
+$requestUri = str_replace('/MvcProject', '', $_SERVER['REDIRECT_URL']);
+$registrationId = $_SERVER['QUERY_STRING'];
+
 $router = $container->get(Router::class);
-$router->process($requestUri);
+$router->process($requestUri, $registrationId);

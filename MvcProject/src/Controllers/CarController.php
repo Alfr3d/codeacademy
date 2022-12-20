@@ -2,15 +2,25 @@
 
 namespace Alfred\MvcProject\Controllers;
 
+use Alfred\MvcProject\Repositories\CarRepository;
+
 class CarController
 {
-    public function list(): string
+    public function __construct(private CarRepository $carRepository)
     {
-        return 'list';
     }
 
-    public function details(): string
+    public function list(): void
     {
-        return  'details';
+        $cars = $this->carRepository->getAll();
+
+        require(__DIR__ . '/../Views/car/list.tpl');
+    }
+
+    public function details(string $registrationId): void
+    {
+        $carObj = $this->carRepository->getByRegistrationId($registrationId);
+
+        require(__DIR__ . '/../Views/car/details.tpl');
     }
 }

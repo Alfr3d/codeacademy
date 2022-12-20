@@ -5,7 +5,7 @@ namespace Alfred\MvcProject\Container;
 use Alfred\MvcProject\Controllers\CarController;
 use Alfred\MvcProject\Controllers\HomePageController;
 use Alfred\MvcProject\Framework\Router;
-use Alfred\MvcProject\Models\Car\Car;
+use Alfred\MvcProject\Models\Car;
 use Alfred\MvcProject\Repositories\CarRepository;
 use RuntimeException;
 
@@ -38,7 +38,9 @@ class DIContainer
         $this->set(
             CarController::class,
             function (DIContainer $container) {
-                return new CarController();
+                return new CarController(
+                    $container->get(CarRepository::class)
+                );
             }
         );
 

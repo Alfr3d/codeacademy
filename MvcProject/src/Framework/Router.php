@@ -13,17 +13,17 @@ class Router
     ) {
     }
 
-    public function process(string $route)
+    public function process(string $route, string $registrationId = '')
     {
         switch ($route) {
             case '/':
                 echo $this->homePageController->renderHomePage();
                 break;
             case '/car/details':
-                echo $this->carController->details();
+                $this->carController->details($registrationId);
                 break;
             case '/car/list':
-                echo $this->carController->list();
+                $this->carController->list();
                 break;
             default:
                 http_response_code(404);

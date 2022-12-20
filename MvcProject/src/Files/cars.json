@@ -1,0 +1,32 @@
+[
+  {
+    "registrationId": "ABC123",
+    "manufacturer": "VW",
+    "model": "Golf",
+    "year": 2018
+  },
+  {
+    "registrationId": "DEF456",
+    "manufacturer": "AUDI",
+    "model": "R8",
+    "year": 2021
+  },
+  {
+    "registrationId": "GHJ789",
+    "manufacturer": "RENAULT",
+    "model": "ESPACE",
+    "year": 2020
+  },
+  {
+    "registrationId": "IKL012",
+    "manufacturer": "CITROEN",
+    "model": "C5",
+    "year": 2009
+  },
+  {
+    "registrationId": "JMN345",
+    "manufacturer": "BMW",
+    "model": "X5",
+    "year": 2012
+  }
+]
